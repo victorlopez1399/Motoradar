@@ -1,0 +1,68 @@
+# Actualiza cada día las ofertas y los modelos nuevos leyendo las webs oficiales,
+# guarda los cambios en el repositorio y publica la web en GitHub Pages.
+# Gratis en repositorios públicos.
+name: Actualizar y publicar MotoRadar
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # todos los días a las 05:00 UTC (6:00 o 7:00 en España)
+  workflow_dispatch:       # botón "Run workflow" para lanzarlo a mano
+  push:
+    branches: [main]       # al subir cambios a mano, solo se vuelve a publicar
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: motoradar
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    if: github.event_name != 'push'
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Leer las webs oficiales
+        shell: powershell
+        run: |
+          # Windows PowerShell necesita el script en UTF-8 con BOM para leer bien las tildes
+          $t = [IO.File]::ReadAllText("$PWD\scripts\actualizar.ps1", [Text.Encoding]::UTF8)
+          [IO.File]::WriteAllText("$PWD\scripts\actualizar.ps1", $t, (New-Object Text.UTF8Encoding $true))
+          ./scripts/actualizar.ps1
+
+      - name: Guardar los cambios
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -- scripts/actualizar.ps1
+          git add data/auto.js data/auto.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios"
+          else
+            git commit -m "Actualización automática $(date -u +%F)"
+            git push
+          fi
+
+  publicar:
+    needs: actualizar
+    if: always() && (needs.actualizar.result == 'success' || needs.actualizar.result == 'skipped')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

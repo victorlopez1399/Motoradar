@@ -15,7 +15,13 @@ Web estática (HTML + CSS + JavaScript, sin dependencias). Se actualiza sola cad
 | `data/auto.js` | **Generado automáticamente**: modelos nuevos y ofertas vigentes |
 | `data/auto.json` | **Generado automáticamente**: estado que usa el actualizador |
 | `scripts/actualizar.ps1` | El actualizador: lee las webs oficiales y genera `data/auto.*` |
+| `scripts/generar-paginas.ps1` | Genera las páginas para Google (`moto/`, `marca/`, `ofertas/`, `motos-a2/`, `motos-125/`, `legal/`), `sitemap.xml`, `robots.txt`, `og.png` |
+| `scripts/telegram.ps1` | Publica las ofertas nuevas en tu canal de Telegram |
+| `data/sitio.js` | **Configuración**: dirección de la web, Search Console, analítica, AdSense, Telegram, leads, afiliados y datos legales |
+| `extras.js` | Activa los servicios configurados en `data/sitio.js` |
 | `.github/workflows/actualizar.yml` | Lo ejecuta cada día y publica la web |
+
+> **Para dar a conocer la web y monetizarla, sigue [MONETIZAR.md](MONETIZAR.md).** Las carpetas `moto/`, `marca/`, etc. se generan solas: no las edites a mano.
 
 ## Actualización automática
 

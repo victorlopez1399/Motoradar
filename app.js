@@ -362,12 +362,15 @@
               <div style="margin-top:8px">${estadoBadge(x)}</div></div>
             <a class="btn btn--lime btn--sm" href="${safeUrl(x.enlace)}" target="_blank" rel="noopener">Ver oferta ↗</a>
           </div>`).join("") : `<p class="note" style="margin-top:0">No hay ofertas comprobadas para este modelo ahora mismo.</p>`}
+        <div class="mr-slot"></div>
         <div class="d-actions">
           <a class="btn btn--lime" href="${urlModelo(m)}" target="_blank" rel="noopener">${m.url ? "Ficha oficial" : "Web oficial de " + esc(b.nombre)} <span aria-hidden="true">↗</span></a>
           ${b.ofertas ? `<a class="btn btn--ghost" href="${safeUrl(b.ofertas)}" target="_blank" rel="noopener">Promociones ${esc(b.nombre)}</a>` : ""}
+          ${window.PAGINAS && window.PAGINAS[id] ? `<a class="btn btn--ghost" href="${esc(window.PAGINAS[id])}">Página de esta moto</a>` : ""}
         </div>
         <p class="note">Datos según la web oficial de ${esc(b.nombre)} (revisado el ${fechaLarga(revisado)}). Pueden variar según versión y año del modelo. «—» = dato no publicado o no comprobado.</p>
       </div>`;
+    if (window.MotoRadarExtras) window.MotoRadarExtras.montar($("drawerBody").querySelector(".mr-slot"), { marca: b.nombre, modelo: m.modelo });
     drawer.scrollTop = 0;
     if (!drawer.open) { drawer.classList.remove("closing"); drawer.showModal(); document.documentElement.style.overflow = "hidden"; }
     state.moto = id; syncUrl();

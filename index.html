@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MotoRadar · Ofertas y fichas de motos en España</title>
+  <meta name="description" content="Las promociones activas de las marcas de motos en España, con ficha técnica, foto y enlace directo a la web oficial de cada oferta.">
+  <meta name="theme-color" content="#07070a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2307070a'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d7ff3a' stroke-width='2.5'/%3E%3Cpath d='M16 16 L24 9' stroke='%23d7ff3a' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23d7ff3a'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wrap topbar__in">
+      <a class="logo" href="#top" aria-label="MotoRadar, inicio">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span>MOTO<b>RADAR</b></span>
+      </a>
+      <nav class="nav" aria-label="Secciones">
+        <a href="#ofertas">Ofertas</a>
+        <a href="#catalogo">Catálogo</a>
+      </nav>
+      <a class="btn btn--lime btn--sm topbar__cta" href="#ofertas">Ver chollos</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="radar" aria-hidden="true">
+        <div class="radar__ring"></div><div class="radar__ring"></div><div class="radar__ring"></div>
+        <div class="radar__sweep"></div>
+        <div class="radar__blips" id="blips"></div>
+      </div>
+      <div class="wrap hero__in">
+        <p class="eyebrow"><span class="live" aria-hidden="true"></span><span id="fechaRev">Mercado español</span></p>
+        <h1 class="hero__title">
+          <span class="line"><span class="outline">LAS OFERTAS</span></span>
+          <span class="line"><span>DE MOTOS,</span></span>
+          <span class="line"><span class="lime">EN TU RADAR.</span></span>
+        </h1>
+        <p class="hero__sub">Todas las promociones activas de las marcas oficiales en España, con su ficha técnica, foto y el enlace directo a la oferta en la web de cada marca.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--lime" href="#ofertas">Ver ofertas activas <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#catalogo">Explorar catálogo</a>
+        </div>
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Ofertas destacadas">
+      <div class="ticker__track" id="ticker"></div>
+    </div>
+
+    <section class="filters" aria-label="Filtros">
+      <div class="wrap">
+        <div class="brands" id="brands" role="toolbar" aria-label="Filtrar por marca"></div>
+        <div class="toolbar">
+          <label class="search">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M10 4a6 6 0 1 0 3.7 10.7l4.8 4.8 1.4-1.4-4.8-4.8A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
+            <span class="sr-only">Buscar modelo</span>
+            <input id="q" type="search" placeholder="Busca un modelo: MT-07, Africa Twin…" autocomplete="off">
+          </label>
+          <label class="select"><span class="sr-only">Tipo de moto</span><select id="tipo"><option value="">Todos los tipos</option></select></label>
+          <label class="select"><span class="sr-only">Carnet</span>
+            <select id="carnet">
+              <option value="">Cualquier carnet</option>
+              <option value="A1">Tengo A1 / B (125 cc)</option>
+              <option value="A2">Tengo carnet A2</option>
+              <option value="A">Tengo carnet A</option>
+            </select>
+          </label>
+          <label class="select"><span class="sr-only">Ordenar</span>
+            <select id="orden">
+              <option value="marca">Orden: marca</option>
+              <option value="ahorro">Mayor ahorro primero</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="cv-desc">Más potentes primero</option>
+              <option value="peso-asc">Más ligeras primero</option>
+            </select>
+          </label>
+          <label class="switch">
+            <input id="soloOferta" type="checkbox">
+            <span class="switch__track" aria-hidden="true"></span>
+            Solo con oferta
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section id="ofertas" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="h2"><span class="h2__num" id="ofertasCount">0</span> ofertas activas</h2>
+          <a class="link-out" id="brandPromoLink" hidden target="_blank" rel="noopener"></a>
+        </div>
+        <div class="offers" id="offers"></div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="h2"><span class="h2__num" id="catalogoCount">0</span> modelos en catálogo</h2>
+          <button class="btn btn--ghost btn--sm" id="resetBtn" type="button" hidden>Quitar filtros ✕</button>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__in">
+      <div class="footer__big" aria-hidden="true">MOTO<span>RADAR</span></div>
+      <div class="footer__text">
+        <p><b>MotoRadar</b> es un comparador independiente, sin relación con los fabricantes. Las marcas pertenecen a sus propietarios.</p>
+        <p>Precios, fichas y ofertas comprobados en las webs oficiales en la fecha indicada. Pueden cambiar en cualquier momento: confirma siempre condiciones y vigencia en la web oficial o en tu concesionario antes de comprar. «—» indica un dato que la marca no publica o que no hemos podido comprobar.</p>
+        <p>Fotos de <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> con licencias libres; el autor y la licencia de cada una aparecen en su ficha. Son ilustrativas y pueden corresponder a otro año o versión.</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="drawer" id="drawer" aria-labelledby="dTitle">
+    <div class="drawer__in" id="drawerBody"></div>
+  </dialog>
+
+  <script src="data/catalogo.js"></script>
+  <script src="data/ofertas.js"></script>
+  <script src="data/fotos.js"></script>
+  <script src="data/auto.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

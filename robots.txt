@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victorlopez1399.github.io/Motoradar/sitemap.xml

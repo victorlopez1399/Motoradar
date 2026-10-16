@@ -1,5 +1,6 @@
-# Actualiza cada día las ofertas y los modelos nuevos leyendo las webs oficiales,
-# guarda los cambios en el repositorio y publica la web en GitHub Pages.
+# Cada día: lee las webs oficiales, genera las páginas para Google, avisa en Telegram de las
+# ofertas nuevas, guarda los cambios y publica la web en GitHub Pages.
+# Al subir cambios a mano (por ejemplo en data/sitio.js) regenera las páginas y publica.
 # Gratis en repositorios públicos.
 name: Actualizar y publicar MotoRadar
 
@@ -8,7 +9,7 @@ on:
     - cron: "0 5 * * *"   # todos los días a las 05:00 UTC (6:00 o 7:00 en España)
   workflow_dispatch:       # botón "Run workflow" para lanzarlo a mano
   push:
-    branches: [main]       # al subir cambios a mano, solo se vuelve a publicar
+    branches: [main]
 
 permissions:
   contents: write
@@ -21,27 +22,47 @@ concurrency:
 
 jobs:
   actualizar:
-    if: github.event_name != 'push'
     runs-on: windows-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Leer las webs oficiales
+      - name: Preparar scripts
         shell: powershell
         run: |
-          # Windows PowerShell necesita el script en UTF-8 con BOM para leer bien las tildes
-          $t = [IO.File]::ReadAllText("$PWD\scripts\actualizar.ps1", [Text.Encoding]::UTF8)
-          [IO.File]::WriteAllText("$PWD\scripts\actualizar.ps1", $t, (New-Object Text.UTF8Encoding $true))
-          ./scripts/actualizar.ps1
+          # Windows PowerShell necesita los scripts en UTF-8 con BOM para leer bien las tildes
+          Get-ChildItem scripts -Filter *.ps1 | ForEach-Object {
+            $t = [IO.File]::ReadAllText($_.FullName, [Text.Encoding]::UTF8)
+            [IO.File]::WriteAllText($_.FullName, $t, (New-Object Text.UTF8Encoding $true))
+          }
+          if (Test-Path data/auto.json) { Copy-Item data/auto.json "$env:RUNNER_TEMP/auto-previo.json" }
+
+      - name: Leer las webs oficiales
+        if: github.event_name != 'push'
+        shell: powershell
+        run: ./scripts/actualizar.ps1
+
+      - name: Generar páginas, sitemap e imagen
+        shell: powershell
+        run: ./scripts/generar-paginas.ps1
+
+      - name: Avisar de ofertas nuevas en Telegram
+        if: github.event_name != 'push'
+        shell: powershell
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: ./scripts/telegram.ps1 -Previo "$env:RUNNER_TEMP/auto-previo.json"
 
       - name: Guardar los cambios
         shell: bash
         run: |
+          git checkout -- scripts
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -- scripts/actualizar.ps1
-          git add data/auto.js data/auto.json
+          git add -A data index.html moto marca ofertas motos-a2 motos-125 legal sitemap.xml robots.txt 404.html og.png
+          if [ -f ads.txt ]; then git add ads.txt; fi
+          git add -u
           if git diff --cached --quiet; then
             echo "Sin cambios"
           else
@@ -51,7 +72,7 @@ jobs:
 
   publicar:
     needs: actualizar
-    if: always() && (needs.actualizar.result == 'success' || needs.actualizar.result == 'skipped')
+    if: always() && needs.actualizar.result == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -1,0 +1,27 @@
+{
+  "appId": "es.motoradar.app",
+  "appName": "MotoRadar",
+  "webDir": "www",
+  "backgroundColor": "#07070a",
+  "android": {
+    "backgroundColor": "#07070a"
+  },
+  "ios": {
+    "backgroundColor": "#07070a",
+    "contentInset": "never",
+    "scheme": "MotoRadar"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "launchAutoHide": true,
+      "backgroundColor": "#07070a",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#07070a",
+      "overlaysWebView": false
+    }
+  }
+}

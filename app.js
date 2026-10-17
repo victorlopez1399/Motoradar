@@ -178,8 +178,11 @@
   };
 
   const conTransicion = (fn) => {
-    if (document.startViewTransition && !reducedMotion) document.startViewTransition(fn);
-    else fn();
+    if (document.startViewTransition && !reducedMotion) {
+      // Si se encadenan filtros rápido, el navegador salta la transición anterior: no es un error
+      const vt = document.startViewTransition(fn);
+      vt.ready.catch(() => {}); vt.finished.catch(() => {});
+    } else fn();
   };
 
   // ── Cabecera: estadísticas, radar y cinta de ofertas ────────

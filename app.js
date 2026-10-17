@@ -35,6 +35,18 @@
   const mejorOferta = (id) => (ofertasPorModelo[id] || [])[0];
   const precioFinal = (m) => { const o = mejorOferta(m.id); return o && o.precioOferta != null ? o.precioOferta : m.precio; };
 
+  // ── Favoritas y ofertas nuevas desde la última visita (se guardan solo en este dispositivo) ──
+  const almacen = {
+    leer(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (_) { return d; } },
+    guardar(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) { /* almacenamiento no disponible */ } },
+  };
+  const favs = new Set(almacen.leer("mr_favs", []).filter((id) => modeloById[id]));
+  const esFav = (id) => favs.has(id);
+  const claveOferta = (o) => [o.modelo, o.precioOferta, o.cuota, o.descuento, o.regalo].join("|");
+  const vistas = almacen.leer("mr_vistas", null);
+  const nuevas = new Set(Array.isArray(vistas) ? ofertas.filter((o) => !vistas.includes(claveOferta(o))).map((o) => o.id) : []);
+  setTimeout(() => almacen.guardar("mr_vistas", ofertas.map(claveOferta)), 4000);
+
   // Titular corto de una oferta: "−1.025 €", "69 €/mes" o "Regalo"
   const titular = (o) => {
     if (o.descuento) return { txt: "−" + eur(o.descuento), cls: "" };
@@ -70,6 +82,7 @@
     carnet: ["A1", "A2", "A"].includes(params.get("carnet")) ? params.get("carnet") : "",
     orden: ordenes.includes(params.get("orden")) ? params.get("orden") : "marca",
     soloOferta: params.get("oferta") === "1",
+    soloFavs: params.get("fav") === "1",
     moto: modeloById[params.get("moto")] ? params.get("moto") : "",
   };
   const syncUrl = () => {
@@ -80,6 +93,7 @@
     if (state.carnet) p.set("carnet", state.carnet);
     if (state.orden !== "marca") p.set("orden", state.orden);
     if (state.soloOferta) p.set("oferta", "1");
+    if (state.soloFavs) p.set("fav", "1");
     if (state.moto) p.set("moto", state.moto);
     const qs = p.toString();
     try { history.replaceState(null, "", (qs ? "?" + qs : location.pathname) + location.hash); } catch (_) { /* file:// en algunos navegadores */ }
@@ -95,7 +109,8 @@
       (!q || norm(m.modelo).includes(q) || norm(marcaById[m.marca].nombre + m.modelo).includes(q)) &&
       (!state.tipo || m.tipo === state.tipo) &&
       (!state.carnet || permitidos[state.carnet].includes(m.carnet)) &&
-      (!state.soloOferta || mejorOferta(m.id))
+      (!state.soloOferta || mejorOferta(m.id)) &&
+      (!state.soloFavs || favs.has(m.id))
     );
   };
 
@@ -169,7 +184,7 @@
 
   // ── Cabecera: estadísticas, radar y cinta de ofertas ────────
   const renderHero = () => {
-    $("fechaRev").textContent = `${ofertas.length} ofertas vivas · revisado el ${fechaLarga(revisado)}`;
+    $("fechaRev").textContent = (nuevas.size ? `${nuevas.size} ${nuevas.size === 1 ? "oferta nueva" : "ofertas nuevas"} desde tu última visita · ` : "") + `${ofertas.length} ofertas vivas · revisado el ${fechaLarga(revisado)}`;
     const maxDto = Math.max(0, ...ofertas.map((o) => o.descuento || 0));
     const marcasConOferta = new Set(ofertas.map((o) => modeloById[o.modelo].marca));
     $("stats").innerHTML = `
@@ -257,7 +272,7 @@
       <article class="offer tilt reveal${i === 0 && items.length >= 3 ? " offer--hero" : ""}" style="--brand:${b.color};--i:${i % 12};view-transition-name:${vtName("o", o.id)}">
         <div class="offer__media">
           ${foto(m, i === 0)}
-          <span class="offer__brand"><i></i>${esc(b.nombre)}</span>
+          <span class="offer__brand"><i></i>${esc(b.nombre)}${nuevas.has(o.id) ? `<em class="nueva">Nueva</em>` : ""}</span>
           <span class="save${t.cls}">${t.txt}</span>
         </div>
         <div class="offer__body">
@@ -281,9 +296,12 @@
   // ── Catálogo ────────────────────────────────────────────────
   const renderGrid = (lista) => {
     $("catalogoCount").textContent = lista.length;
-    $("resetBtn").hidden = !(state.marca || state.q || state.tipo || state.carnet || state.soloOferta);
+    $("resetBtn").hidden = !(state.marca || state.q || state.tipo || state.carnet || state.soloOferta || state.soloFavs);
+    $("favCount").textContent = favs.size ? `(${favs.size})` : "";
     if (!lista.length) {
-      $("grid").innerHTML = `<div class="empty"><h3>Ningún modelo coincide</h3><p>Prueba a quitar algún filtro o a buscar otro nombre.</p><button class="btn btn--ghost btn--sm" type="button" data-reset>Quitar filtros</button></div>`;
+      $("grid").innerHTML = state.soloFavs && !favs.size
+        ? `<div class="empty"><h3>Aún no tienes favoritas</h3><p>Abre la ficha de una moto y pulsa «☆ Guardar» para tenerla siempre a mano.</p><button class="btn btn--ghost btn--sm" type="button" data-reset>Ver todas las motos</button></div>`
+        : `<div class="empty"><h3>Ningún modelo coincide</h3><p>Prueba a quitar algún filtro o a buscar otro nombre.</p><button class="btn btn--ghost btn--sm" type="button" data-reset>Quitar filtros</button></div>`;
       return;
     }
     $("grid").innerHTML = ordenar(lista).map((m, i) => {
@@ -292,7 +310,7 @@
       const badge = o ? (o.descuento ? `<span class="card__hot">−${eur(o.descuento)}</span>` : `<span class="card__hot card__hot--lime">${o.cuota ? fmtNum(o.cuota) + " €/MES" : "REGALO"}</span>`) : "";
       return `
       <button type="button" class="card tilt reveal" style="--brand:${b.color};--i:${i % 12};view-transition-name:${vtName("c", m.id)}" data-ficha="${esc(m.id)}" aria-label="Ficha técnica de ${esc(b.nombre)} ${esc(m.modelo)}">
-        <span class="card__media">${foto(m, false)}${badge}</span>
+        <span class="card__media">${foto(m, false)}${badge}${esFav(m.id) ? `<span class="card__fav" title="Favorita">★</span>` : ""}</span>
         <span class="card__body">
           <span class="card__brand"><i></i>${esc(b.nombre)}</span>
           <span class="card__title">${esc(m.modelo)}</span>
@@ -362,11 +380,15 @@
               <div style="margin-top:8px">${estadoBadge(x)}</div></div>
             <a class="btn btn--lime btn--sm" href="${safeUrl(x.enlace)}" target="_blank" rel="noopener">Ver oferta ↗</a>
           </div>`).join("") : `<p class="note" style="margin-top:0">No hay ofertas comprobadas para este modelo ahora mismo.</p>`}
+        <div class="d-actions">
+          <button class="btn btn--ghost" type="button" data-fav="${esc(id)}" aria-pressed="${esFav(id)}">${esFav(id) ? "★ Guardada" : "☆ Guardar"}</button>
+          <button class="btn btn--ghost" type="button" data-share="${esc(id)}">Compartir</button>
+        </div>
         <div class="mr-slot"></div>
         <div class="d-actions">
           <a class="btn btn--lime" href="${urlModelo(m)}" target="_blank" rel="noopener">${m.url ? "Ficha oficial" : "Web oficial de " + esc(b.nombre)} <span aria-hidden="true">↗</span></a>
           ${b.ofertas ? `<a class="btn btn--ghost" href="${safeUrl(b.ofertas)}" target="_blank" rel="noopener">Promociones ${esc(b.nombre)}</a>` : ""}
-          ${window.PAGINAS && window.PAGINAS[id] ? `<a class="btn btn--ghost" href="${esc(window.PAGINAS[id])}">Página de esta moto</a>` : ""}
+          ${window.PAGINAS && window.PAGINAS[id] && !window.MR_APP ? `<a class="btn btn--ghost" href="${esc(window.PAGINAS[id])}">Página de esta moto</a>` : ""}
         </div>
         <p class="note">Datos según la web oficial de ${esc(b.nombre)} (revisado el ${fechaLarga(revisado)}). Pueden variar según versión y año del modelo. «—» = dato no publicado o no comprobado.</p>
       </div>`;
@@ -401,9 +423,36 @@
   const renderAnimado = () => conTransicion(render);
 
   const reset = () => {
-    Object.assign(state, { marca: "", q: "", tipo: "", carnet: "", soloOferta: false });
-    $("q").value = ""; $("tipo").value = ""; $("carnet").value = ""; $("soloOferta").checked = false;
+    Object.assign(state, { marca: "", q: "", tipo: "", carnet: "", soloOferta: false, soloFavs: false });
+    $("q").value = ""; $("tipo").value = ""; $("carnet").value = ""; $("soloOferta").checked = false; $("soloFavs").checked = false;
     renderAnimado();
+  };
+
+  // ── Guardar en favoritas y compartir ────────────────────────
+  const aviso = (txt) => {
+    let el = document.querySelector(".toast");
+    if (!el) { el = document.createElement("div"); el.className = "toast"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+    el.textContent = txt; el.classList.add("on");
+    clearTimeout(aviso.t); aviso.t = setTimeout(() => el.classList.remove("on"), 2400);
+  };
+  const alternarFav = (id, boton) => {
+    if (favs.has(id)) favs.delete(id); else favs.add(id);
+    almacen.guardar("mr_favs", [...favs]);
+    if (boton) { boton.textContent = esFav(id) ? "★ Guardada" : "☆ Guardar"; boton.setAttribute("aria-pressed", esFav(id)); }
+    aviso(esFav(id) ? "Guardada en tus favoritas" : "Quitada de tus favoritas");
+    render();
+  };
+  const compartir = async (id) => {
+    const m = modeloById[id], b = marcaById[m.marca], o = mejorOferta(id);
+    const base = ((window.SITIO && window.SITIO.url) || location.origin).replace(/\/$/, "");
+    const url = base + "/" + ((window.PAGINAS && window.PAGINAS[id]) || "?moto=" + encodeURIComponent(id));
+    const text = `${b.nombre} ${m.modelo}: ` + (o && o.precioOferta != null ? `${eur(o.precioOferta)} con oferta oficial` : `desde ${eur(m.precio)}`) + " · MotoRadar";
+    const nativo = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
+    try {
+      if (nativo) await nativo.share({ title: `${b.nombre} ${m.modelo}`, text, url, dialogTitle: "Compartir moto" });
+      else if (navigator.share) await navigator.share({ title: `${b.nombre} ${m.modelo}`, text, url });
+      else { await navigator.clipboard.writeText(`${text} ${url}`); aviso("Enlace copiado"); }
+    } catch (_) { /* compartir cancelado */ }
   };
 
   // ── Eventos ─────────────────────────────────────────────────
@@ -416,6 +465,7 @@
   $("carnet").value = state.carnet;
   $("orden").value = state.orden;
   $("soloOferta").checked = state.soloOferta;
+  $("soloFavs").checked = state.soloFavs;
 
   let t;
   $("q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value; render(); }, 140); });
@@ -423,6 +473,7 @@
   $("carnet").addEventListener("change", (e) => { state.carnet = e.target.value; renderAnimado(); });
   $("orden").addEventListener("change", (e) => { state.orden = e.target.value; renderAnimado(); });
   $("soloOferta").addEventListener("change", (e) => { state.soloOferta = e.target.checked; renderAnimado(); });
+  $("soloFavs").addEventListener("change", (e) => { state.soloFavs = e.target.checked; renderAnimado(); });
   $("resetBtn").addEventListener("click", reset);
 
   $("brands").addEventListener("click", (e) => {
@@ -434,6 +485,10 @@
   document.addEventListener("click", (e) => {
     const f = e.target.closest("[data-ficha]");
     if (f) return abrirFicha(f.dataset.ficha);
+    const fav = e.target.closest("[data-fav]");
+    if (fav) return alternarFav(fav.dataset.fav, fav);
+    const sh = e.target.closest("[data-share]");
+    if (sh) return compartir(sh.dataset.share);
     if (e.target.closest("[data-reset]")) return reset();
     if (e.target.closest("[data-close]")) cerrarFicha();
   });

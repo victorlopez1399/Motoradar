@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>MotoRadar · Ofertas y fichas de motos en España</title>
   <meta name="description" content="Las promociones activas de las marcas de motos en España, con ficha técnica, foto y enlace directo a la web oficial de cada oferta.">
   <meta name="theme-color" content="#07070a">
@@ -11,6 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Bloque generado por scripts/generar-paginas.ps1 (no editar a mano) -->
   <!--MR:HEAD-->
   <link rel="canonical" href="https://victorlopez1399.github.io/Motoradar/">
@@ -98,6 +102,11 @@
               <option value="cv-desc">Más potentes primero</option>
               <option value="peso-asc">Más ligeras primero</option>
             </select>
+          </label>
+          <label class="switch">
+            <input id="soloFavs" type="checkbox">
+            <span class="switch__track" aria-hidden="true"></span>
+            ★ Favoritas <span id="favCount" class="chip__n"></span>
           </label>
           <label class="switch">
             <input id="soloOferta" type="checkbox">

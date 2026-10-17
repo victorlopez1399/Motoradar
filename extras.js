@@ -8,6 +8,8 @@
   var C = window.SITIO || {};
   var yo = document.currentScript && document.currentScript.src;
   var raiz = yo ? yo.replace(/extras\.js(\?.*)?$/, "") : "./";
+  // En la app las páginas legales no van incluidas: se abren en la web publicada
+  if (window.MR_APP && /^https:\/\//.test(C.url || "")) raiz = C.url.replace(/\/$/, "") + "/";
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -27,7 +29,8 @@
   else if (C.cloudflareAnalytics) script("https://static.cloudflareinsights.com/beacon.min.js", { defer: "", "data-cf-beacon": JSON.stringify({ token: C.cloudflareAnalytics }) });
 
   // ── Google AdSense (anuncios automáticos; el consentimiento lo gestiona el mensaje de privacidad de Google) ──
-  if (/^ca-pub-\d{10,20}$/.test(C.adsense || "")) {
+  // En la app de las tiendas no se carga AdSense: sus normas no permiten anuncios web dentro de apps
+  if (!window.MR_APP && /^ca-pub-\d{10,20}$/.test(C.adsense || "")) {
     script("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + C.adsense, { crossorigin: "anonymous" });
   }
 

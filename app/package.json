@@ -7,7 +7,7 @@
   "engines": { "node": ">=22" },
   "scripts": {
     "preparar": "node preparar-web.mjs",
-    "recursos": "capacitor-assets generate --assetPath assets --iconBackgroundColor #07070a --iconBackgroundColorDark #07070a --splashBackgroundColor #07070a --splashBackgroundColorDark #07070a"
+    "recursos": "capacitor-assets generate --assetPath assets --iconBackgroundColor \"#07070a\" --iconBackgroundColorDark \"#07070a\" --splashBackgroundColor \"#07070a\" --splashBackgroundColorDark \"#07070a\""
   },
   "dependencies": {
     "@capacitor/android": "^8.0.0",

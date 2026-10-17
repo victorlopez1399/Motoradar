@@ -100,7 +100,8 @@ jobs:
         id: play
         env:
           PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
-        run: if [ -n "$PLAY_JSON" ]; then echo "ok=si" >> $GITHUB_OUTPUT; else echo "Sin cuenta de servicio de Google Play: no se sube"; fi
+        run: |
+          if [ -n "$PLAY_JSON" ]; then echo "ok=si" >> $GITHUB_OUTPUT; else echo "Sin cuenta de servicio de Google Play: no se sube"; fi
 
       - name: Subir a Google Play (pista de prueba interna)
         if: steps.firma.outputs.firmado == 'si' && steps.play.outputs.ok == 'si' && (github.event_name != 'workflow_dispatch' || inputs.subir)
@@ -145,7 +146,8 @@ jobs:
         env:
           KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
           TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-        run: if [ -n "$KEY_ID" ] && [ -n "$TEAM_ID" ]; then echo "ok=si" >> $GITHUB_OUTPUT; else echo "Sin claves de Apple: solo se compila para el simulador"; fi
+        run: |
+          if [ -n "$KEY_ID" ] && [ -n "$TEAM_ID" ]; then echo "ok=si" >> $GITHUB_OUTPUT; else echo "Sin claves de Apple: solo se compila para el simulador"; fi
 
       - name: Compilar para el simulador (comprobación)
         if: steps.apple.outputs.ok != 'si'

@@ -126,7 +126,7 @@ main, .footer, .topbar { position: relative; z-index: 1; }
 .tick::after { content: "✺"; margin-left: 22px; }
 
 /* ───────────────────────── Filtros ───────────────────────── */
-.filters { position: sticky; top: 64px; z-index: 20; padding: 12px 0; background: rgb(7 7 10 / .82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+.filters { position: sticky; top: calc(64px + env(safe-area-inset-top)); z-index: 20; padding: 12px 0; background: rgb(7 7 10 / .82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
 .brands { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; scrollbar-color: var(--surface-2) transparent; }
 .chip {
   flex: none; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 5px; border-radius: 999px;
@@ -341,6 +341,20 @@ main, .footer, .topbar { position: relative; z-index: 1; }
   .ticker__track { animation: none; }
   .glow { display: none; }
 }
+
+/* ───────────────────────── Favoritas, novedades y avisos ───────────────────────── */
+.nueva { margin-left: 6px; padding: 2px 7px; border-radius: 999px; background: var(--lime); color: var(--lime-ink); font: 700 10px/1.4 var(--display); font-style: normal; letter-spacing: .06em; text-transform: uppercase; }
+.card__fav { position: absolute; z-index: 2; left: 10px; top: 10px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgb(7 7 10 / .7); color: var(--lime); font-size: 16px; backdrop-filter: blur(6px); }
+[data-fav][aria-pressed="true"] { border-color: var(--lime); color: var(--lime); }
+.toast { position: fixed; z-index: 200; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translate(-50%, 20px); padding: 12px 18px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 700; font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .35s var(--ease-out); }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* App instalada (iOS/Android): respeta la muesca y las esquinas de la pantalla */
+.topbar { padding-top: env(safe-area-inset-top); }
+.topbar__in { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+.footer { padding-bottom: calc(48px + env(safe-area-inset-bottom)); }
+.drawer .d-close { top: calc(14px + env(safe-area-inset-top)); }
+html.app .filters { top: calc(64px + env(safe-area-inset-top)); }
 
 /* ───────────────────────── Páginas estáticas (moto/, marca/, ofertas/…) ───────────────────────── */
 .st-main { padding-top: 28px; padding-bottom: 56px; }

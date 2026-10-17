@@ -21,7 +21,7 @@ Web estática (HTML + CSS + JavaScript, sin dependencias). Se actualiza sola cad
 | `extras.js` | Activa los servicios configurados en `data/sitio.js` |
 | `.github/workflows/actualizar.yml` | Lo ejecuta cada día y publica la web |
 
-> **Para dar a conocer la web y monetizarla, sigue [MONETIZAR.md](MONETIZAR.md).** Las carpetas `moto/`, `marca/`, etc. se generan solas: no las edites a mano.
+> **Para dar a conocer la web y monetizarla, sigue [MONETIZAR.md](MONETIZAR.md). Para publicar la app en Google Play y App Store, sigue [APP.md](APP.md)** (el proyecto de la app está en `app/` y se compila con `.github/workflows/app.yml`). Las carpetas `moto/`, `marca/`, etc. se generan solas: no las edites a mano.
 
 ## Actualización automática
 

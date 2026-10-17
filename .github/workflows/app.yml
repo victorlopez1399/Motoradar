@@ -1,0 +1,189 @@
+# Compila la app de MotoRadar para Android (Google Play) e iOS (App Store) y, si están
+# configurados los secretos del repositorio (ver APP.md), la firma y la sube a las tiendas.
+# Sin secretos solo compila, para comprobar que todo funciona.
+#
+# Se lanza a mano: pestaña Actions → "App: compilar y publicar" → Run workflow.
+name: "App: compilar y publicar"
+
+on:
+  workflow_dispatch:
+    inputs:
+      subir:
+        description: "Subir a las tiendas (si los secretos están configurados)"
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths: ["app/**", ".github/workflows/app.yml"]
+
+concurrency:
+  group: app
+  cancel-in-progress: true
+
+env:
+  APP_ID: es.motoradar.app
+  VERSION: "1.0.${{ github.run_number }}"
+  BUILD: ${{ github.run_number }}
+
+jobs:
+  recursos:
+    name: Iconos y pantallas de carga
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dibujar iconos
+        shell: powershell
+        run: |
+          $t = [IO.File]::ReadAllText("$PWD\scripts\generar-iconos.ps1", [Text.Encoding]::UTF8)
+          [IO.File]::WriteAllText("$PWD\scripts\generar-iconos.ps1", $t, (New-Object Text.UTF8Encoding $true))
+          ./scripts/generar-iconos.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recursos
+          path: |
+            app/assets
+            icons
+          retention-days: 3
+
+  android:
+    name: Android (Google Play)
+    needs: recursos
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: recursos, path: . }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+
+      - name: Preparar proyecto Android
+        working-directory: app
+        run: |
+          set -eo pipefail
+          npm install --no-audit --no-fund
+          npm run preparar
+          npx cap add android
+          npm run recursos -- --android
+          npx cap sync android
+          # Versión: cada compilación sube el número
+          sed -i -E "s/versionCode [0-9]+/versionCode ${BUILD}/; s/versionName \"[^\"]*\"/versionName \"${VERSION}\"/" android/app/build.gradle
+          grep -E "versionCode|versionName|applicationId" android/app/build.gradle
+
+      - name: Compilar AAB
+        working-directory: app/android
+        run: ./gradlew --no-daemon bundleRelease
+
+      - name: Firmar AAB
+        id: firma
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          AAB=app/android/app/build/outputs/bundle/release/app-release.aab
+          if [ -z "$KS_B64" ]; then echo "Sin clave de firma: el AAB queda sin firmar"; echo "firmado=no" >> $GITHUB_OUTPUT; exit 0; fi
+          echo "$KS_B64" | base64 -d > "$RUNNER_TEMP/subida.p12"
+          ALIAS=$(keytool -list -keystore "$RUNNER_TEMP/subida.p12" -storetype pkcs12 -storepass "$KS_PASS" | grep -i "PrivateKeyEntry" | head -1 | cut -d, -f1)
+          jarsigner -sigalg SHA256withRSA -digestalg SHA-256 -keystore "$RUNNER_TEMP/subida.p12" -storetype pkcs12 -storepass "$KS_PASS" "$AAB" "$ALIAS"
+          jarsigner -verify "$AAB" | head -3
+          rm "$RUNNER_TEMP/subida.p12"
+          echo "firmado=si" >> $GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: motoradar-android-${{ env.VERSION }}
+          path: app/android/app/build/outputs/bundle/release/app-release.aab
+
+      - name: Comprobar acceso a Google Play
+        id: play
+        env:
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: if [ -n "$PLAY_JSON" ]; then echo "ok=si" >> $GITHUB_OUTPUT; else echo "Sin cuenta de servicio de Google Play: no se sube"; fi
+
+      - name: Subir a Google Play (pista de prueba interna)
+        if: steps.firma.outputs.firmado == 'si' && steps.play.outputs.ok == 'si' && (github.event_name != 'workflow_dispatch' || inputs.subir)
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: ${{ env.APP_ID }}
+          releaseFiles: app/android/app/build/outputs/bundle/release/app-release.aab
+          track: internal
+          status: draft
+
+  ios:
+    name: iOS (App Store)
+    needs: recursos
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: recursos, path: . }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: maxim-lobanov/setup-xcode@v1
+        with: { xcode-version: latest-stable }
+
+      - name: Preparar proyecto iOS
+        working-directory: app
+        run: |
+          set -eo pipefail
+          npm install --no-audit --no-fund
+          npm run preparar
+          npx cap add ios
+          npm run recursos -- --ios
+          npx cap sync ios
+          PLIST=ios/App/App/Info.plist
+          /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$PLIST" || /usr/libexec/PlistBuddy -c "Set :ITSAppUsesNonExemptEncryption false" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName MotoRadar" "$PLIST" || /usr/libexec/PlistBuddy -c "Add :CFBundleDisplayName string MotoRadar" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Delete :UISupportedInterfaceOrientations~ipad" "$PLIST" || true
+
+      - name: Comprobar claves de App Store Connect
+        id: apple
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: if [ -n "$KEY_ID" ] && [ -n "$TEAM_ID" ]; then echo "ok=si" >> $GITHUB_OUTPUT; else echo "Sin claves de Apple: solo se compila para el simulador"; fi
+
+      - name: Compilar para el simulador (comprobación)
+        if: steps.apple.outputs.ok != 'si'
+        working-directory: app/ios/App
+        run: |
+          set -o pipefail
+          if [ -d App.xcworkspace ]; then P="-workspace App.xcworkspace"; else P="-project App.xcodeproj"; fi
+          xcodebuild $P -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            TARGETED_DEVICE_FAMILY=1 CODE_SIGNING_ALLOWED=NO build | tail -20
+
+      - name: Firmar y subir a App Store Connect (TestFlight)
+        if: steps.apple.outputs.ok == 'si' && (github.event_name != 'workflow_dispatch' || inputs.subir)
+        working-directory: app/ios/App
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+          ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          KEY_P8: ${{ secrets.APPSTORE_KEY_P8 }}
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          set -o pipefail
+          KEY="$RUNNER_TEMP/AuthKey.p8"; printf '%s' "$KEY_P8" > "$KEY"
+          AUTH="-allowProvisioningUpdates -authenticationKeyPath $KEY -authenticationKeyID $KEY_ID -authenticationKeyIssuerID $ISSUER_ID"
+          if [ -d App.xcworkspace ]; then P="-workspace App.xcworkspace"; else P="-project App.xcodeproj"; fi
+          xcodebuild $P -scheme App -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/App.xcarchive" archive $AUTH \
+            DEVELOPMENT_TEAM="$TEAM_ID" CODE_SIGN_STYLE=Automatic PRODUCT_BUNDLE_IDENTIFIER="$APP_ID" \
+            TARGETED_DEVICE_FAMILY=1 MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$BUILD" | tail -20
+          cat > "$RUNNER_TEMP/export.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>${TEAM_ID}</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/App.xcarchive" -exportPath "$RUNNER_TEMP/export" \
+            -exportOptionsPlist "$RUNNER_TEMP/export.plist" $AUTH | tail -20
+          rm -f "$KEY"

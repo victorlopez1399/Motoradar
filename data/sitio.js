@@ -9,7 +9,7 @@ window.SITIO = {
   nombre: "MotoRadar",
 
   // Google Search Console y Bing Webmaster Tools: solo el código "content" de su etiqueta meta
-  googleVerificacion: "8E7XNv78POESnbs",
+  googleVerificacion: "8E7XNv78POESnbs3ipyBiU1QceBGXdAluCEkDgpa0qk",
   bingVerificacion: "",
 
   // Analítica sin cookies (no necesita banner): rellena UNA de las dos

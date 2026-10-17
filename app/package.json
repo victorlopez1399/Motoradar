@@ -1,0 +1,26 @@
+{
+  "name": "motoradar-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App de MotoRadar para Google Play y App Store (Capacitor)",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "preparar": "node preparar-web.mjs",
+    "recursos": "capacitor-assets generate --assetPath assets --iconBackgroundColor #07070a --iconBackgroundColorDark #07070a --splashBackgroundColor #07070a --splashBackgroundColorDark #07070a"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/browser": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/ios": "^8.0.0",
+    "@capacitor/share": "^8.0.0",
+    "@capacitor/splash-screen": "^8.0.0",
+    "@capacitor/status-bar": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.0.0"
+  }
+}

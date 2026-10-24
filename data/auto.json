@@ -1,9 +1,9 @@
 {
-    "actualizado":  "2026-10-23",
+    "actualizado":  "2026-10-24",
     "marcas":  {
                    "honda":  {
                                  "ok":  true,
-                                 "revisado":  "2026-10-23",
+                                 "revisado":  "2026-10-24",
                                  "error":  null,
                                  "modelos":  [
                                                  {
@@ -532,7 +532,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -552,7 +552,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -572,7 +572,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -591,7 +591,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -610,7 +610,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -629,7 +629,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -647,7 +647,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -667,7 +667,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -687,7 +687,7 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  },
                                                  {
@@ -707,14 +707,14 @@
                                                      "hasta":  "2026-10-31",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-10-23",
+                                                     "revisada":  "2026-10-24",
                                                      "auto":  true
                                                  }
                                              ]
                              },
                    "kawasaki":  {
                                     "ok":  true,
-                                    "revisado":  "2026-10-23",
+                                    "revisado":  "2026-10-24",
                                     "error":  null,
                                     "modelos":  [
                                                     {
@@ -1186,7 +1186,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/eliminator-500-2025",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1204,7 +1204,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/kle-500-2026",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1222,7 +1222,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/ninja-7-hybrid-2024",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1240,11 +1240,29 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/versys-1100-se-2025",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     },
                                                     {
-                                                        "id":  "kawasaki-auto-5-z650s",
+                                                        "id":  "kawasaki-auto-5-auto-z1100",
+                                                        "modelo":  "kawasaki-auto-z1100",
+                                                        "campana":  "Kawa-GO!",
+                                                        "descuento":  875,
+                                                        "precioOferta":  13400,
+                                                        "cuota":  null,
+                                                        "regalo":  null,
+                                                        "extras":  [
+                                                                       "Versión Z 1100 SE 2026",
+                                                                       "Seguro a todo riesgo gratis el primer año financiando"
+                                                                   ],
+                                                        "hasta":  "2026-12-31",
+                                                        "estado":  "confirmada",
+                                                        "enlace":  "https://kawa-go.kawasaki.es/modelo/z-1100-se-2026",
+                                                        "revisada":  "2026-10-24",
+                                                        "auto":  true
+                                                    },
+                                                    {
+                                                        "id":  "kawasaki-auto-6-z650s",
                                                         "modelo":  "kawasaki-z650s",
                                                         "campana":  "Kawa-GO!",
                                                         "descuento":  1276,
@@ -1258,11 +1276,11 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-650-s-2026",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     },
                                                     {
-                                                        "id":  "kawasaki-auto-6-z900",
+                                                        "id":  "kawasaki-auto-7-z900",
                                                         "modelo":  "kawasaki-z900",
                                                         "campana":  "Kawa-GO!",
                                                         "descuento":  1225,
@@ -1276,11 +1294,11 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-900-2025",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     },
                                                     {
-                                                        "id":  "kawasaki-auto-7-z900",
+                                                        "id":  "kawasaki-auto-8-z900",
                                                         "modelo":  "kawasaki-z900",
                                                         "campana":  "Kawa-GO!",
                                                         "descuento":  1300,
@@ -1294,14 +1312,14 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-900-a2-2025",
-                                                        "revisada":  "2026-10-23",
+                                                        "revisada":  "2026-10-24",
                                                         "auto":  true
                                                     }
                                                 ]
                                 },
                    "suzuki":  {
                                   "ok":  true,
-                                  "revisado":  "2026-10-23",
+                                  "revisado":  "2026-10-24",
                                   "error":  null,
                                   "modelos":  [
                                                   {
@@ -1572,7 +1590,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1589,7 +1607,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1607,7 +1625,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1625,7 +1643,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1642,7 +1660,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1659,7 +1677,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1677,28 +1695,11 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
                                                       "id":  "suzuki-auto-8-gsxs1000",
-                                                      "modelo":  "suzuki-gsxs1000",
-                                                      "campana":  "Promoción Suzuki",
-                                                      "descuento":  3172,
-                                                      "precioOferta":  11999,
-                                                      "cuota":  null,
-                                                      "regalo":  null,
-                                                      "extras":  [
-                                                                     "Unidades 2025"
-                                                                 ],
-                                                      "hasta":  "",
-                                                      "estado":  "confirmada",
-                                                      "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
-                                                      "auto":  true
-                                                  },
-                                                  {
-                                                      "id":  "suzuki-auto-9-gsxs1000",
                                                       "modelo":  "suzuki-gsxs1000",
                                                       "campana":  "Promoción Suzuki",
                                                       "descuento":  1000,
@@ -1711,28 +1712,28 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
-                                                      "id":  "suzuki-auto-10-auto-gsx8tt",
-                                                      "modelo":  "suzuki-auto-gsx8tt",
+                                                      "id":  "suzuki-auto-9-gsxs1000",
+                                                      "modelo":  "suzuki-gsxs1000",
                                                       "campana":  "Promoción Suzuki",
-                                                      "descuento":  1000,
-                                                      "precioOferta":  9999,
+                                                      "descuento":  3172,
+                                                      "precioOferta":  11999,
                                                       "cuota":  null,
                                                       "regalo":  null,
                                                       "extras":  [
-                                                                     "Unidades 2026"
+                                                                     "Unidades 2025"
                                                                  ],
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
-                                                      "id":  "suzuki-auto-11-gsx8s",
+                                                      "id":  "suzuki-auto-10-gsx8s",
                                                       "modelo":  "suzuki-gsx8s",
                                                       "campana":  "Promoción Suzuki",
                                                       "descuento":  500,
@@ -1745,7 +1746,24 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
+                                                      "auto":  true
+                                                  },
+                                                  {
+                                                      "id":  "suzuki-auto-11-auto-gsx8tt",
+                                                      "modelo":  "suzuki-auto-gsx8tt",
+                                                      "campana":  "Promoción Suzuki",
+                                                      "descuento":  1000,
+                                                      "precioOferta":  9999,
+                                                      "cuota":  null,
+                                                      "regalo":  null,
+                                                      "extras":  [
+                                                                     "Unidades 2026"
+                                                                 ],
+                                                      "hasta":  "",
+                                                      "estado":  "confirmada",
+                                                      "enlace":  "https://moto.suzuki.es/promociones",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1762,7 +1780,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1779,7 +1797,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1796,7 +1814,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1813,14 +1831,14 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-10-23",
+                                                      "revisada":  "2026-10-24",
                                                       "auto":  true
                                                   }
                                               ]
                               },
                    "ktm":  {
                                "ok":  true,
-                               "revisado":  "2026-10-23",
+                               "revisado":  "2026-10-24",
                                "error":  null,
                                "modelos":  [
                                                {
@@ -2199,7 +2217,7 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/adventure/2026-ktm-390-adventurex.html",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2216,7 +2234,7 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/dual-sport/2026-ktm-125-enduror.html",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2233,7 +2251,7 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/naked-bike/2026-ktm-125-duke.html",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2250,7 +2268,7 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/naked-bike/2026-ktm-390-duke.html",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2267,7 +2285,7 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/supermoto/2026-ktm-125-smcr.html",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2284,14 +2302,14 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/supermoto/2026-ktm-390-smcr.html",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                }
                                            ]
                            },
                    "bmw":  {
                                "ok":  true,
-                               "revisado":  "2026-10-23",
+                               "revisado":  "2026-10-24",
                                "error":  null,
                                "modelos":  [
                                                {
@@ -2671,7 +2689,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-900-r",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2689,7 +2707,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-900-gs",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2707,7 +2725,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-900-xr",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2725,7 +2743,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-900-gs-adventure",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2743,7 +2761,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-800-gs",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2761,7 +2779,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2779,7 +2797,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-classic",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2797,7 +2815,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-b",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2815,7 +2833,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-transcontinental",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                },
                                                {
@@ -2833,14 +2851,14 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-roctane",
-                                                   "revisada":  "2026-10-23",
+                                                   "revisada":  "2026-10-24",
                                                    "auto":  true
                                                }
                                            ]
                            },
                    "triumph":  {
                                    "ok":  true,
-                                   "revisado":  "2026-10-23",
+                                   "revisado":  "2026-10-24",
                                    "error":  null,
                                    "modelos":  [
                                                    {
@@ -2958,7 +2976,7 @@
                                },
                    "harley":  {
                                   "ok":  true,
-                                  "revisado":  "2026-10-23",
+                                  "revisado":  "2026-10-24",
                                   "error":  null,
                                   "modelos":  [
                                                   {
@@ -3166,7 +3184,7 @@
                               },
                    "royalenfield":  {
                                         "ok":  true,
-                                        "revisado":  "2026-10-23",
+                                        "revisado":  "2026-10-24",
                                         "error":  null,
                                         "modelos":  [
                                                         {

@@ -1,9 +1,9 @@
 {
-    "actualizado":  "2026-11-17",
+    "actualizado":  "2026-11-18",
     "marcas":  {
                    "honda":  {
                                  "ok":  true,
-                                 "revisado":  "2026-11-17",
+                                 "revisado":  "2026-11-18",
                                  "error":  null,
                                  "modelos":  [
                                                  {
@@ -14,7 +14,7 @@
                                                      "cc":  124,
                                                      "cv":  11,
                                                      "nm":  10.9,
-                                                     "peso":  117,
+                                                     "peso":  null,
                                                      "asiento":  790,
                                                      "deposito":  11,
                                                      "carnet":  "A1",
@@ -32,7 +32,7 @@
                                                      "cc":  124,
                                                      "cv":  9.4,
                                                      "nm":  10.8,
-                                                     "peso":  107,
+                                                     "peso":  null,
                                                      "asiento":  775,
                                                      "deposito":  3.8,
                                                      "carnet":  "A1",
@@ -50,7 +50,7 @@
                                                      "cc":  124,
                                                      "cv":  9.4,
                                                      "nm":  10.7,
-                                                     "peso":  105,
+                                                     "peso":  null,
                                                      "asiento":  776,
                                                      "deposito":  5.6,
                                                      "carnet":  "A1",
@@ -68,7 +68,7 @@
                                                      "cc":  null,
                                                      "cv":  9.9,
                                                      "nm":  10.8,
-                                                     "peso":  103,
+                                                     "peso":  null,
                                                      "asiento":  761,
                                                      "deposito":  6,
                                                      "carnet":  "A1",
@@ -86,7 +86,7 @@
                                                      "cc":  124,
                                                      "cv":  9.8,
                                                      "nm":  10.4,
-                                                     "peso":  111,
+                                                     "peso":  null,
                                                      "asiento":  780,
                                                      "deposito":  3.7,
                                                      "carnet":  "A1",
@@ -104,7 +104,7 @@
                                                      "cc":  1084,
                                                      "cv":  102,
                                                      "nm":  112,
-                                                     "peso":  243,
+                                                     "peso":  null,
                                                      "asiento":  835,
                                                      "deposito":  24.8,
                                                      "carnet":  "A",
@@ -122,7 +122,7 @@
                                                      "cc":  1131,
                                                      "cv":  119,
                                                      "nm":  null,
-                                                     "peso":  256,
+                                                     "peso":  null,
                                                      "asiento":  850,
                                                      "deposito":  24.2,
                                                      "carnet":  "A",
@@ -140,7 +140,7 @@
                                                      "cc":  286,
                                                      "cv":  27.3,
                                                      "nm":  26.6,
-                                                     "peso":  142,
+                                                     "peso":  null,
                                                      "asiento":  880,
                                                      "deposito":  7.8,
                                                      "carnet":  "A2",
@@ -158,7 +158,7 @@
                                                      "cc":  745,
                                                      "cv":  59,
                                                      "nm":  69,
-                                                     "peso":  216,
+                                                     "peso":  null,
                                                      "asiento":  802,
                                                      "deposito":  14.1,
                                                      "carnet":  "A",
@@ -214,7 +214,7 @@
                                                      "cc":  125,
                                                      "cv":  12.5,
                                                      "nm":  null,
-                                                     "peso":  133,
+                                                     "peso":  null,
                                                      "asiento":  780,
                                                      "deposito":  8.1,
                                                      "carnet":  "A1",
@@ -232,7 +232,7 @@
                                                      "cc":  330,
                                                      "cv":  29,
                                                      "nm":  31.5,
-                                                     "peso":  186,
+                                                     "peso":  null,
                                                      "asiento":  795,
                                                      "deposito":  11.7,
                                                      "carnet":  "A2",
@@ -250,7 +250,7 @@
                                                      "cc":  null,
                                                      "cv":  null,
                                                      "nm":  22,
-                                                     "peso":  119,
+                                                     "peso":  null,
                                                      "asiento":  760,
                                                      "deposito":  null,
                                                      "carnet":  "A",
@@ -269,7 +269,7 @@
                                                      "cc":  null,
                                                      "cv":  null,
                                                      "nm":  null,
-                                                     "peso":  95,
+                                                     "peso":  null,
                                                      "asiento":  740,
                                                      "deposito":  null,
                                                      "carnet":  "A",
@@ -288,7 +288,7 @@
                                                      "cc":  330,
                                                      "cv":  29,
                                                      "nm":  31.5,
-                                                     "peso":  186,
+                                                     "peso":  null,
                                                      "asiento":  780,
                                                      "deposito":  11.7,
                                                      "carnet":  "A2",
@@ -306,7 +306,7 @@
                                                      "cc":  125,
                                                      "cv":  13,
                                                      "nm":  12,
-                                                     "peso":  138,
+                                                     "peso":  null,
                                                      "asiento":  799,
                                                      "deposito":  7,
                                                      "carnet":  "A1",
@@ -324,7 +324,7 @@
                                                      "cc":  330,
                                                      "cv":  29,
                                                      "nm":  31.5,
-                                                     "peso":  172,
+                                                     "peso":  null,
                                                      "asiento":  805,
                                                      "deposito":  9.1,
                                                      "carnet":  "A2",
@@ -342,7 +342,7 @@
                                                      "cc":  109,
                                                      "cv":  8.7,
                                                      "nm":  9,
-                                                     "peso":  100,
+                                                     "peso":  null,
                                                      "asiento":  785,
                                                      "deposito":  4.9,
                                                      "carnet":  "A1",
@@ -360,7 +360,7 @@
                                                      "cc":  1000,
                                                      "cv":  150,
                                                      "nm":  102,
-                                                     "peso":  229,
+                                                     "peso":  null,
                                                      "asiento":  825,
                                                      "deposito":  21,
                                                      "carnet":  "A",
@@ -378,7 +378,7 @@
                                                      "cc":  1000,
                                                      "cv":  123.7,
                                                      "nm":  103,
-                                                     "peso":  214,
+                                                     "peso":  null,
                                                      "asiento":  795,
                                                      "deposito":  16,
                                                      "carnet":  "A",
@@ -396,7 +396,7 @@
                                                      "cc":  649,
                                                      "cv":  95,
                                                      "nm":  63,
-                                                     "peso":  207,
+                                                     "peso":  null,
                                                      "asiento":  810,
                                                      "deposito":  15.4,
                                                      "carnet":  "A",
@@ -414,7 +414,7 @@
                                                      "cc":  471,
                                                      "cv":  47,
                                                      "nm":  43.3,
-                                                     "peso":  191,
+                                                     "peso":  null,
                                                      "asiento":  790,
                                                      "deposito":  12,
                                                      "carnet":  "A2",
@@ -432,7 +432,7 @@
                                                      "cc":  1084,
                                                      "cv":  87,
                                                      "nm":  98,
-                                                     "peso":  237,
+                                                     "peso":  null,
                                                      "asiento":  710,
                                                      "deposito":  13.6,
                                                      "carnet":  "A",
@@ -450,7 +450,7 @@
                                                      "cc":  348,
                                                      "cv":  21.1,
                                                      "nm":  29,
-                                                     "peso":  178,
+                                                     "peso":  null,
                                                      "asiento":  800,
                                                      "deposito":  15,
                                                      "carnet":  "A2",
@@ -468,7 +468,7 @@
                                                      "cc":  1000,
                                                      "cv":  217,
                                                      "nm":  113,
-                                                     "peso":  201,
+                                                     "peso":  null,
                                                      "asiento":  830,
                                                      "deposito":  16.5,
                                                      "carnet":  "A",
@@ -486,7 +486,7 @@
                                                      "cc":  471,
                                                      "cv":  47,
                                                      "nm":  43,
-                                                     "peso":  194,
+                                                     "peso":  null,
                                                      "asiento":  785,
                                                      "deposito":  17.1,
                                                      "carnet":  "A2",
@@ -504,7 +504,7 @@
                                                      "cc":  502,
                                                      "cv":  72,
                                                      "nm":  47.4,
-                                                     "peso":  189,
+                                                     "peso":  null,
                                                      "asiento":  780,
                                                      "deposito":  14,
                                                      "carnet":  "A",
@@ -522,7 +522,7 @@
                                                      "cc":  599,
                                                      "cv":  121,
                                                      "nm":  63,
-                                                     "peso":  193,
+                                                     "peso":  null,
                                                      "asiento":  820,
                                                      "deposito":  18,
                                                      "carnet":  "A",
@@ -540,7 +540,7 @@
                                                      "cc":  1833,
                                                      "cv":  126,
                                                      "nm":  170,
-                                                     "peso":  373,
+                                                     "peso":  null,
                                                      "asiento":  745,
                                                      "deposito":  21,
                                                      "carnet":  "A",
@@ -558,7 +558,7 @@
                                                      "cc":  1833,
                                                      "cv":  126,
                                                      "nm":  170,
-                                                     "peso":  373,
+                                                     "peso":  null,
                                                      "asiento":  745,
                                                      "deposito":  21,
                                                      "carnet":  "A",
@@ -587,7 +587,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -607,7 +607,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -627,7 +627,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -646,7 +646,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -665,7 +665,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -684,7 +684,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -702,7 +702,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -722,7 +722,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -742,7 +742,7 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  },
                                                  {
@@ -762,14 +762,14 @@
                                                      "hasta":  "2026-11-30",
                                                      "estado":  "confirmada",
                                                      "enlace":  "https://www.honda.es/motorcycles/range/offers/ofertas-honda.html",
-                                                     "revisada":  "2026-11-17",
+                                                     "revisada":  "2026-11-18",
                                                      "auto":  true
                                                  }
                                              ]
                              },
                    "kawasaki":  {
                                     "ok":  true,
-                                    "revisado":  "2026-11-17",
+                                    "revisado":  "2026-11-18",
                                     "error":  null,
                                     "modelos":  [
                                                     {
@@ -1259,7 +1259,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/eliminator-500-2025",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1277,15 +1277,15 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/kle-500-2026",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
                                                         "id":  "kawasaki-auto-3-auto-ninja7hybrid",
                                                         "modelo":  "kawasaki-auto-ninja7hybrid",
                                                         "campana":  "Kawa-GO!",
-                                                        "descuento":  4615,
-                                                        "precioOferta":  6650,
+                                                        "descuento":  6465,
+                                                        "precioOferta":  4800,
                                                         "cuota":  null,
                                                         "regalo":  null,
                                                         "extras":  [
@@ -1295,7 +1295,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/ninja-7-hybrid-2024",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1313,7 +1313,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/versys-1100-se-2025",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1331,7 +1331,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-1100-se-2026",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1349,7 +1349,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-650s-2026",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1367,7 +1367,7 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-900-2025",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     },
                                                     {
@@ -1385,14 +1385,14 @@
                                                         "hasta":  "2026-12-31",
                                                         "estado":  "confirmada",
                                                         "enlace":  "https://kawa-go.kawasaki.es/modelo/z-900-a2-2025",
-                                                        "revisada":  "2026-11-17",
+                                                        "revisada":  "2026-11-18",
                                                         "auto":  true
                                                     }
                                                 ]
                                 },
                    "suzuki":  {
                                   "ok":  true,
-                                  "revisado":  "2026-11-17",
+                                  "revisado":  "2026-11-18",
                                   "error":  null,
                                   "modelos":  [
                                                   {
@@ -1699,7 +1699,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1716,7 +1716,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1733,7 +1733,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1751,7 +1751,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1769,7 +1769,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1786,7 +1786,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1803,7 +1803,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1821,7 +1821,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1838,7 +1838,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1855,7 +1855,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1872,7 +1872,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1889,7 +1889,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1906,7 +1906,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1923,7 +1923,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1940,7 +1940,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1957,7 +1957,7 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   },
                                                   {
@@ -1974,14 +1974,14 @@
                                                       "hasta":  "",
                                                       "estado":  "confirmada",
                                                       "enlace":  "https://moto.suzuki.es/promociones",
-                                                      "revisada":  "2026-11-17",
+                                                      "revisada":  "2026-11-18",
                                                       "auto":  true
                                                   }
                                               ]
                               },
                    "ktm":  {
                                "ok":  true,
-                               "revisado":  "2026-11-17",
+                               "revisado":  "2026-11-18",
                                "error":  null,
                                "modelos":  [
                                                {
@@ -2414,7 +2414,7 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/dual-sport/2026-ktm-125-enduror.html",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2431,14 +2431,14 @@
                                                    "hasta":  "",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://www.ktm.com/es-es/models/supermoto/2026-ktm-125-smcr.html",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                }
                                            ]
                            },
                    "bmw":  {
                                "ok":  true,
-                               "revisado":  "2026-11-17",
+                               "revisado":  "2026-11-18",
                                "error":  null,
                                "modelos":  [
                                                {
@@ -2836,7 +2836,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-900-r",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2854,7 +2854,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/f-900-xr",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2872,7 +2872,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2890,7 +2890,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-classic",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2908,7 +2908,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-b",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2926,7 +2926,7 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-transcontinental",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                },
                                                {
@@ -2944,14 +2944,14 @@
                                                    "hasta":  "2026-12-31",
                                                    "estado":  "confirmada",
                                                    "enlace":  "https://promociones.bmw-motorrad.es/motos-scooters/r-18-roctane",
-                                                   "revisada":  "2026-11-17",
+                                                   "revisada":  "2026-11-18",
                                                    "auto":  true
                                                }
                                            ]
                            },
                    "triumph":  {
                                    "ok":  true,
-                                   "revisado":  "2026-11-17",
+                                   "revisado":  "2026-11-18",
                                    "error":  null,
                                    "modelos":  [
                                                    {
@@ -3069,7 +3069,7 @@
                                },
                    "harley":  {
                                   "ok":  true,
-                                  "revisado":  "2026-11-17",
+                                  "revisado":  "2026-11-18",
                                   "error":  null,
                                   "modelos":  [
                                                   {
@@ -3295,7 +3295,7 @@
                               },
                    "royalenfield":  {
                                         "ok":  true,
-                                        "revisado":  "2026-11-17",
+                                        "revisado":  "2026-11-18",
                                         "error":  null,
                                         "modelos":  [
                                                         {
